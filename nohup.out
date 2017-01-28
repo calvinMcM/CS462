@@ -1,0 +1,5 @@
+
+> ubuntu@1.0.0 start /home/ubuntu
+> node index.js
+
+Example app listening on port 3000!

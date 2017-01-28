@@ -1,5 +1,5 @@
 var express = require('express');
-//express.static.mime.define({'text/plain':['byu']});
+express.static.mime.define({'text/plain':['byu']});
 var app = express();
 
 var bodyParser = require('body-parser');
@@ -7,8 +7,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', function (req, res) {
+  console.log("GET");
   var qstring = req.query;
-
 
   var mappings = {
     "foo":"https://www.google.com",
@@ -17,11 +17,13 @@ app.get('/', function (req, res) {
     "idk":"http://www.ask.com",
     "thishomeworkwasreallyhardandpoorlyoutlined":"http://www.instructure.byu.edu"
   }
+
   var out = "QUERIES:<br>";
   for(var i in qstring){
     if(qstring.hasOwnProperty(i)){
       if(mappings.hasOwnProperty(i)){
         res.redirect(mappings[i]);
+	return;
       }
       out += i + " : " + qstring[i] + "<br>";
     }
@@ -51,6 +53,7 @@ app.get('/', function (req, res) {
 })
 
 app.post("/",function(req,res){
+  console.log("POST");
   var qstring = req.query;
 
   var out = "QUERIES:<br>";
@@ -67,7 +70,7 @@ app.post("/",function(req,res){
     }
   }
 
-  res.send(out+"<br>" + headers_out + "<br>BODY:<br>" + (req.body ? req.body : "NONE."));
+  res.send(out+"<br>" + headers_out + "<br>BODY:<br>" + (req.body ? JSON.stringify(req.body) : "NONE."));
 
 })
 
