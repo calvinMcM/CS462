@@ -1,0 +1,12 @@
+=============== Feb 2, 2017 (UTC) ===============
+01:36:18.261552 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+01:36:18.261724 db@open opening
+01:36:18.268995 version@stat F·[] S·0B[] Sc·[]
+01:36:18.276375 db@janitor F·2 G·0
+01:36:18.276389 db@open done T·14.659679ms
+=============== Feb 10, 2017 (UTC) ===============
+09:36:18.351705 memdb@flush N·1161 S·3MiB
+09:36:18.372601 memdb@flush created L0@3 N·1161 S·2MiB "kv:..900,v188":"lo:..EAD,v4"
+09:36:18.372665 version@stat F·[1] S·2MiB[2MiB] Sc·[0.25]
+09:36:18.374434 memdb@flush committed F·1 T·22.699531ms
+09:36:18.375745 journal@remove removed @1

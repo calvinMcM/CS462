@@ -1,0 +1,5 @@
+2017-02-02T01:36:18.236373 ▶ [DEBU keybase globals.go:352] 001 Created Identify2Cache, max age: 5m0s
+2017-02-02T01:36:18.237140 ▶ [DEBU keybase globals.go:355] 002 Created LinkCache, max size: 65536, clean dur: 1m0s
+2017-02-02T01:36:18.237163 ▶ [DEBU keybase globals.go:357] 003 Created CardCache, max age: 5m0s
+2017-02-02T01:36:18.237172 ▶ [DEBU keybase globals.go:359] 004 made a new full self cache
+2017-02-02T01:36:18.237181 ▶ [DEBU keybase globals.go:361] 005 made a new cached UPAK loader (timeout=10m0s)

@@ -1,0 +1,11 @@
+{
+    "current_user": "calvinmcm",
+    "users": {
+        "calvinmcm": {
+            "device": "86ef104d44a6b02341f19fc512888118",
+            "id": "7f8f51736ad3845b7d34975e9de00119",
+            "name": "calvinmcm",
+            "salt": "eec0bcb09d811818a75dc3322bed175d"
+        }
+    }
+}

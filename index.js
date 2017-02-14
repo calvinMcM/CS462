@@ -81,3 +81,7 @@ app.listen(3000, function () {
 app.get('/byu', function(req, res) {
     res.sendFile('/public/index.byu', { root: __dirname });
 });
+
+app.get('/dlee',function(req, res){
+    res.sendFile('/message2dlee_enc.gpg', { root: __dirname });
+});

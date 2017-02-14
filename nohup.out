@@ -3,3 +3,169 @@
 > node index.js
 
 Example app listening on port 3000!
+
+> ubuntu@1.0.0 start /home/ubuntu
+> node index.js
+
+Example app listening on port 3000!
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+POST
+POST
+POST
+POST
+POST
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+Terminated
+
+npm ERR! Linux 4.4.0-53-generic
+npm ERR! argv "/usr/bin/nodejs" "/usr/bin/npm" "start"
+npm ERR! node v4.2.6
+npm ERR! npm  v3.5.2
+npm ERR! code ELIFECYCLE
+npm ERR! ubuntu@1.0.0 start: `node index.js`
+npm ERR! Exit status 143
+npm ERR! 
+npm ERR! Failed at the ubuntu@1.0.0 start script 'node index.js'.
+npm ERR! Make sure you have the latest version of node.js and npm installed.
+npm ERR! If you do, this is most likely a problem with the ubuntu package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     node index.js
+npm ERR! You can get information on how to open an issue for this project with:
+npm ERR!     npm bugs ubuntu
+npm ERR! Or if that isn't available, you can get their info via:
+npm ERR!     npm owner ls ubuntu
+npm ERR! There is likely additional logging output above.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /home/ubuntu/npm-debug.log
+/home/ubuntu/index.js:87
+}
+^
+
+SyntaxError: missing ) after argument list
+    at exports.runInThisContext (vm.js:53:16)
+    at Module._compile (module.js:374:25)
+    at Object.Module._extensions..js (module.js:417:10)
+    at Module.load (module.js:344:32)
+    at Function.Module._load (module.js:301:12)
+    at Function.Module.runMain (module.js:442:10)
+    at startup (node.js:136:18)
+    at node.js:966:3
+/home/ubuntu/index.js:87
+}
+^
+
+SyntaxError: missing ) after argument list
+    at exports.runInThisContext (vm.js:53:16)
+    at Module._compile (module.js:374:25)
+    at Object.Module._extensions..js (module.js:417:10)
+    at Module.load (module.js:344:32)
+    at Function.Module._load (module.js:301:12)
+    at Function.Module.runMain (module.js:442:10)
+    at startup (node.js:136:18)
+    at node.js:966:3
+/home/ubuntu/index.js:87
+}
+^
+
+SyntaxError: missing ) after argument list
+    at exports.runInThisContext (vm.js:53:16)
+    at Module._compile (module.js:374:25)
+    at Object.Module._extensions..js (module.js:417:10)
+    at Module.load (module.js:344:32)
+    at Function.Module._load (module.js:301:12)
+    at Function.Module.runMain (module.js:442:10)
+    at startup (node.js:136:18)
+    at node.js:966:3
+Example app listening on port 3000!
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
+GET
