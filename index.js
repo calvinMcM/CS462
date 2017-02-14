@@ -85,3 +85,7 @@ app.get('/byu', function(req, res) {
 app.get('/dlee',function(req, res){
     res.sendFile('/message2dlee_enc.gpg', { root: __dirname });
 });
+
+app.get('/oauth',function(req, res){
+    res.sendFile('/oauth/login.html', { root: __dirname });
+});

@@ -9828,3 +9828,22 @@
 2017-02-14T18:37:53.304658 ▶ [DEBU kbfs crypto_client.go:123] 2669 Signed 448-byte message: err=<nil>
 2017-02-14T18:37:53.325529 ▶ [DEBU kbfs(BSR) bserver_remote.go:263] 266a BlockServerRemote: resetAuth called, err: <nil>
 2017-02-14T18:37:53.325566 ▶ [DEBU kbfs(BSR) connection.go:397] 266b (CONN BlockServerRemotePut 004c3a89) Connection: connected
+2017-02-14T19:16:03.408371 ▶ [DEBU kbfs mdserver_remote.go:892] 266c Checking for rekey folders [tags:MDSRID=4f2fpY8dtoB46HEjtdO_Dw]
+2017-02-14T19:18:24.931250 ▶ [DEBU kbfs auth_token.go:131] 266d MDServerRemote: Refreshing auth token...
+2017-02-14T19:18:24.931318 ▶ [DEBU kbfs mdserver_remote.go:231] 266e MDServerRemote: resetAuth called
+2017-02-14T19:18:24.933084 ▶ [DEBU kbfs mdserver_remote.go:231] 266f MDServerRemote: received challenge
+2017-02-14T19:18:24.933140 ▶ [DEBU kbfs crypto_client.go:109] 2670 Signing 446-byte message to string
+2017-02-14T19:18:24.933781 ▶ [DEBU kbfs crypto_client.go:123] 2671 Signed 446-byte message: err=<nil>
+2017-02-14T19:18:24.933804 ▶ [DEBU kbfs mdserver_remote.go:231] 2672 MDServerRemote: authentication token signed
+2017-02-14T19:18:24.935872 ▶ [DEBU kbfs mdserver_remote.go:231] 2673 MDServerRemote: authentication successful; ping interval: 30s
+2017-02-14T19:18:24.935894 ▶ [DEBU kbfs auth_token.go:131] 2674 MDServerRemote: auth token refreshed
+2017-02-14T19:18:39.520583 ▶ [DEBU kbfs(BSR) connection.go:486] 2675 (CONN BlockServerRemoteGet 575347cb) Connection: getReconnectChan
+2017-02-14T19:18:39.520674 ▶ [DEBU kbfs(BSR) connection.go:453] 2676 (CONN BlockServerRemoteGet 575347cb) Connection: waitForConnection; status: 3
+2017-02-14T19:18:39.520693 ▶ [WARN kbfs(BSR) bserver_remote.go:102] 2677 disconnected
+2017-02-14T19:18:39.520715 ▶ [DEBU kbfs(BSR) connection.go:365] 2678 (CONN BlockServerRemoteGet 575347cb) Connection: dialing transport
+2017-02-14T19:18:39.521056 ▶ [DEBU kbfs(BSR) bserver_remote.go:244] 2679 BlockServerRemote: resetAuth called, err: &errors.errorString{s:"context canceled"}
+2017-02-14T19:18:39.521096 ▶ [DEBU kbfs(BSR) bserver_remote.go:62] 267a error refreshing auth token: context canceled
+2017-02-14T19:18:39.578013 ▶ [DEBU kbfs crypto_client.go:109] 267b Signing 448-byte message to string
+2017-02-14T19:18:39.578682 ▶ [DEBU kbfs crypto_client.go:123] 267c Signed 448-byte message: err=<nil>
+2017-02-14T19:18:39.613826 ▶ [DEBU kbfs(BSR) bserver_remote.go:263] 267d BlockServerRemote: resetAuth called, err: <nil>
+2017-02-14T19:18:39.613899 ▶ [DEBU kbfs(BSR) connection.go:397] 267e (CONN BlockServerRemoteGet 575347cb) Connection: connected
