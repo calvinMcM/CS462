@@ -35,7 +35,9 @@
                 });
             }
             function logId(id){
-                $.ajax("../saves?id=" + id);
+                $.ajax("../saves?id=" + id,{
+                    method: "POST"
+                });
             }
 
             (function run(){
