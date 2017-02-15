@@ -8,8 +8,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('static',express.static('oauth'));
 
 // FOURSQUARE STUFF
-var FSCID = "NQWQ2LTZTLQM02RQKOXYFWMTJSUHWYBMI1F2V4K2CNB1N3P3";
-var FSCSC = "O54FM0ZKFLPHGPIZNDWS5EF23JFDTEJYMWRADWHG3MDIBVEA";
 
 var config = {
     'secrets' : {
@@ -20,6 +18,17 @@ var config = {
 };
 
 var foursquare = require('node-foursquare')(config);
+
+// FILE SYSTEM
+var fs = require('fs');
+var saveids = {};
+
+fs.readFile("/saves/savelog.txt", function(err,data){
+    if(err){
+        console.log("File unreadable.")
+    }
+    saveids = JSON.parse(data);
+});
 
 
 app.get('/', function (req, res) {
@@ -160,5 +169,13 @@ app.get('/foursquare', function (req, res) {
             console.log("Recieving token:",accessToken);
             res.sendFile('/oauth/main.html', {root: __dirname})
         }
+    });
+});
+
+app.post('/saveid', function (req, res){
+    var id = req.params.id;
+    saveids[id]= Date.now();
+    fs.writeFile("/saves/savelog.txt",JSON.stringify(saveids),function(err){
+       if(err){ console.log("Could not write file:",err); }
     });
 });
