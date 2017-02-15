@@ -6,14 +6,15 @@
 			src="https://code.jquery.com/jquery-3.1.1.min.js"
 			integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 			crossorigin="anonymous"></script>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<style>
 		.rounded{
 			border-radius: 15px;
 		}
 		.blue{
-			background-color: aqua;
+			background-color: darkcyan;
+			color: white;
 		}
 		.dark{
 			background-color: #202020;
@@ -21,18 +22,16 @@
 	</style>
 </head>
 <body class="dark">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="offset-sm-2 col-sm-8 rounded blue">
-				<h1 align="center">SQUOMP</h1>
-				<h4 align="center"><i>A website with absolutely no purpose</i></h4>
-			</div>
+	<div align="center">
+		<div class="rounded blue" style="padding:15px; margin: 15px;">
+			<h1 align="center">SQUOMP</h1>
+			<h4 align="center"><i>A website with absolutely no purpose</i></h4>
 		</div>
-		<div class="row">
-			<div class="offset-sm-2 col-sm-8 rounded blue">
-				<h2 align="center">Sign in</h2>
-			</div>
-		</div>
+
+		<button type="button" class="btn btn-primary blue" align="center" id="sign-in">
+			<h1 style="display: inline;">Sign in with </h1> <img src="foursquareIcon.png" style="display: inline;">
+		</button>
 	</div>
+
 </body>
 </html>
