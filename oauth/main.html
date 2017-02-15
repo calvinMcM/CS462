@@ -39,7 +39,10 @@
                 var token = getOAuthCookie();
                 getUserDetails(token).then(
                         function resolve(data){
+
+                            console.log("UserDeets:",data);
                             var userData = data.response;
+                            console.log("personal info:", userData);
 
                             $('#name').text(userData.firstName + " " + userData.lastName);
                             var dataSection = $('#data');
