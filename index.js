@@ -27,7 +27,9 @@ fs.readFile("/saves/savelog.txt", function(err,data){
     if(err){
         console.log("File unreadable.")
     }
-    saveids = JSON.parse(data);
+    else {
+        saveids = JSON.parse(data);
+    }
 });
 
 
