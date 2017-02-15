@@ -5,6 +5,7 @@ var app = express();
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('static',express.static('oauth'));
 
 // FOURSQUARE STUFF
 var FSCID = "NQWQ2LTZTLQM02RQKOXYFWMTJSUHWYBMI1F2V4K2CNB1N3P3";
@@ -101,7 +102,7 @@ app.get('/oauth/public/foursquareIcon.png',function(req, res){
     res.sendFile('/oauth/public/foursquareIcon.png', {root: __dirname}) ;
 });
 
-app.get('/oauth',function(req, res) {
+app.get('/oauth/',function(req, res) {
     console.log("Retrieving main page.");
     var params = req.params;
     // If I have a code already
