@@ -184,6 +184,7 @@ app.post('/saves', function (req, res){
     fs.writeFile("oauth/saves/savelog.txt",JSON.stringify(saveids),function(err){
        if(err){ console.log("Could not write file:",err); }
     });
+    res.end();
 });
 
 app.get('/saves', function(req,res){
