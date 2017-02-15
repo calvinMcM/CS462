@@ -37,7 +37,7 @@
 
             (function run(){
                 var token = getOAuthCookie();
-                getPersonDetails("user",token).then(
+                getPersonDetails("self",token).then(
                         function resolve(userData){
                             console.log("personal info:", userData);
 
