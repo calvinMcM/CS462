@@ -145,3 +145,11 @@ app.get('/oauth',function(req, res) {
         res.sendFile('/oauth/login.html', {root: __dirname});
     }
 });
+
+app.get('/oauth/login.js',function(req, res){
+    res.sendFile('/oauth/login.js', {root: __dirname}) ;
+});
+
+app.get('/oauth/foursquareIcon.png',function(req, res){
+    res.sendFile('/oauth/foursquareIcon.png', {root: __dirname}) ;
+});
