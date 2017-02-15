@@ -11,6 +11,16 @@ app.use('static',express.static('oauth'));
 var FSCID = "NQWQ2LTZTLQM02RQKOXYFWMTJSUHWYBMI1F2V4K2CNB1N3P3";
 var FSCSC = "O54FM0ZKFLPHGPIZNDWS5EF23JFDTEJYMWRADWHG3MDIBVEA";
 
+var config = {
+    'secrets' : {
+        'clientId' : 'NQWQ2LTZTLQM02RQKOXYFWMTJSUHWYBMI1F2V4K2CNB1N3P3',
+        'clientSecret' : 'O54FM0ZKFLPHGPIZNDWS5EF23JFDTEJYMWRADWHG3MDIBVEA',
+        'redirectUrl' : 'http://ec2-54-210-24-107.compute-1.amazonaws.com/foursquare/'
+    }
+};
+
+var foursquare = require('node-foursquare')(config);
+
 
 app.get('/', function (req, res) {
   console.log("GET");
@@ -128,4 +138,25 @@ app.get('/oauth/',function(req, res) {
         res.cookie("oauthkeys", {"id":FSCID, "secret": FSCSC});
         res.sendFile('/oauth/login.html', {root: __dirname});
     }
+});
+
+app.get('/login', function(req, res) {
+    res.writeHead(303, { 'location': foursquare.getAuthClientRedirectUrl() });
+    res.end();
+});
+
+
+app.get('/foursquare', function (req, res) {
+    console.log("HIT");
+    foursquare.getAccessToken({
+        code: req.query.code
+    }, function (error, accessToken) {
+        if(error) {
+            res.send('An error was thrown: ' + error.message);
+        }
+        else {
+            // Save the accessToken and redirect.
+            res.sendFile('/oauth/main.html', {root: __dirname})
+        }
+    });
 });

@@ -24,17 +24,18 @@ $(document).ready(function(){
 
     $('#sign-in').on('click',function(ev){
 
-        var cookie = getOAuthCookie();
-        console.log("Got cookie:",cookie);
+        // var cookie = getOAuthCookie();
+        // console.log("Got cookie:",cookie);
+        //
+        // $.ajax("https://foursquare.com/oauth2/authenticate" +
+        //         "?client_id=" + cookie.id +
+        //         "&response_type=code" +
+        //         "&redirect_uri=http://ec2-54-210-24-107.compute-1.amazonaws.com/oauth/",
+        //     {
+        //     }
+        // );
 
-        $.ajax("https://foursquare.com/oauth2/authenticate" +
-                "?client_id=" + cookie.id +
-                "&response_type=code" +
-                "&redirect_uri=http://ec2-54-210-24-107.compute-1.amazonaws.com/oauth/",
-            {
-            }
-        );
-
+        window.location = "/login"
     })
 
 });
