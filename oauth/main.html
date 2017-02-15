@@ -41,7 +41,9 @@
                         function resolve(userData){
                             console.log("personal info:", userData);
 
-                            $('#name').text(userData.firstName + " " + userData.lastName);
+                            var nameSection = $('#name');
+                            nameSection.append("<h1>" + userData.firstName + " " + userData.lastName + "</h1>");
+                            nameSection.append("<h4>UID: " + userData.id + "</h4>");
                             var dataSection = $('#data');
                             dataSection.append("<h3>Home:  " + userData.homeCity + "</h3>");
                             dataSection.append("<h3>Email: " + userData.contact.email + "</h3>");
@@ -55,7 +57,6 @@
                             else{
                                 checkins.append("<h3>" + "None" + "</h3>");
                             }
-
                         },
                         function reject(data){
                             console.log("FAILURE:",data);
@@ -82,13 +83,17 @@
     </style>
 </head>
 <body class="style">
-    <h1 id="name" class="rounded blue spaced"></h1>
+    <div id="name" class="rounded blue spaced">
+        
+    </div>
     <div class="rounded blue spaced" id="data">
         <h2>Personal Data</h2>
+        <hr>
 
     </div>
     <div class="rounded blue spaced" id="checkins">
         <h2>Checkins</h2>
+        <hr>
     </div>
 
 </body>
