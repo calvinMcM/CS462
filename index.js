@@ -119,12 +119,12 @@ app.get('/oauth',function(req, res) {
     }
 });
 
-app.get('/oauth/login.js',function(req, res){
+app.get('/oauth/public/login.js',function(req, res){
     console.log("Hey there.");
-    res.sendFile('/oauth/login.js', {root: __dirname}) ;
+    res.sendFile('/oauth/public/login.js', {root: __dirname}) ;
 });
 
-app.get('/oauth/foursquareIcon.png',function(req, res){
+app.get('/oauth/public/foursquareIcon.png',function(req, res){
     console.log("Howdy.");
-    res.sendFile('/oauth/foursquareIcon.png', {root: __dirname}) ;
+    res.sendFile('/oauth/public/foursquareIcon.png', {root: __dirname}) ;
 });
