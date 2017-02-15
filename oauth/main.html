@@ -3,8 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Squomp</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            function getOAuthCookie() {
+                var cookies = (document.cookie).split(';');
+                for (let c of cookies) {
+                    let pair = c.split('=');
+                    let name = pair[0].trim();
+                    let value = pair[1].trim();
+                    if (name == "oauthtoken") {
+                        // console.log("PRE:", value);
+//                        value = value.substr(4); // random j: at the beginning of it? Dunno.
+                        value = decodeURIComponent(value);
+                        // console.log("VAL:", value);
+                        value = JSON.parse(value);
+                        // console.log(name, value);
+                        return value;
+                    }
+                }
+                // console.log("Cookies:", cookies);
+            }
+            console.log(getOAuthCookie());
+        });
+    </script>
+    <style>
+        .rounded{
+            border-radius: 15px;
+        }
+        .blue{
+            background-color: darkcyan;
+            color: white;
+        }
+        .spaced{
+            margin: 15px;
+            padding: 15px;
+        }
+        .dark{
+            background-color: #202020;
+        }
+    </style>
 </head>
-<body>
-    <h1>You're in.</h1>
+<body class="style">
+    <h1 id="name" class="rounded blue spaced"></h1>
+    <div class="rounded blue spaced">
+        <h2 id="data"></h2>
+    </div>
+
 </body>
 </html>
