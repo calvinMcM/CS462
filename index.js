@@ -157,6 +157,7 @@ app.get('/foursquare', function (req, res) {
         else {
             // Save the accessToken and redirect.
             res.cookie("oauthtoken",accessToken);
+            console.log("Recieving token:",accessToken);
             res.sendFile('/oauth/main.html', {root: __dirname})
         }
     });
