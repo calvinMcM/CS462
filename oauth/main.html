@@ -39,7 +39,13 @@
                 var token = getOAuthCookie();
                 getUserDetails(token).then(
                         function resolve(data){
-                            console.log("Deets obtained.");
+                            var userData = data.response;
+
+                            $('#name').text(userData.firstName + " " + userData.lastName);
+                            var dataSection = $('#data');
+                            dataSection.append("<h3>Home:  " + userData.homeCity + "</h3>");
+                            dataSection.append("<h3>Email: " + userData.contact.email + "</h3>");
+
                         },
                         function reject(data){
                             console.log("FAILURE:",data);
