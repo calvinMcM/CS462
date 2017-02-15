@@ -91,6 +91,16 @@ app.get('/dlee',function(req, res){
     res.sendFile('/message2dlee_enc.gpg', { root: __dirname });
 });
 
+app.get('/oauth/public/login.js',function(req, res){
+    console.log("Hey there.");
+    res.sendFile('/oauth/public/login.js', {root: __dirname}) ;
+});
+
+app.get('/oauth/public/foursquareIcon.png',function(req, res){
+    console.log("Howdy.");
+    res.sendFile('/oauth/public/foursquareIcon.png', {root: __dirname}) ;
+});
+
 app.get('/oauth',function(req, res) {
     console.log("Retrieving main page.");
     var params = req.params;
@@ -114,17 +124,7 @@ app.get('/oauth',function(req, res) {
     }
     // Otherwise, just pass out the keys to get the code.
     else {
-        res.cookie("oauthkeys", {id: FSCID, secret: FSCSC});
+        res.cookie("oauthkeys", {"id":FSCID, "secret": FSCSC});
         res.sendFile('/oauth/login.html', {root: __dirname});
     }
-});
-
-app.get('/oauth/public/login.js',function(req, res){
-    console.log("Hey there.");
-    res.sendFile('/oauth/public/login.js', {root: __dirname}) ;
-});
-
-app.get('/oauth/public/foursquareIcon.png',function(req, res){
-    console.log("Howdy.");
-    res.sendFile('/oauth/public/foursquareIcon.png', {root: __dirname}) ;
 });
