@@ -50,7 +50,7 @@
                             var dataSection = $('#data');
                             dataSection.append("<h3>Home:  " + userData.homeCity + "</h3>");
                             dataSection.append("<h3>Email: " + userData.contact.email + "</h3>");
-                            logId(serData.id);
+                            logId(userData.id);
                             var checkins = $('#checkins');
                             if(userData.checkins.count) {
                                 for (let checkin of userData.checkins) {
