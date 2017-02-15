@@ -125,30 +125,32 @@ app.get('/oauth/public/foursquareIcon.png',function(req, res){
 
 app.get('/oauth/',function(req, res) {
     console.log("Retrieving main page.");
-    var params = req.params;
-    // If I have a code already
-    if (params.hasOwnProperty('code')) {
-        var url = "https://foursquare.com/oauth2/access_token" +
-            "?client_id=" + FSCID +
-            "&client_secret=" + FSCSC +
-            "&grant_type=authorization_code" +
-            "&redirect_uri=http://ec2-54-210-24-107.compute-1.amazonaws.com/oauth/" +
-            "&code=" + params.code;
-        var outbound = new XMLHttpRequest();
-        outbound.onreadystatechange = function () {
-            if (outbound.status == "200") {
-                console.log(outbound.response);
-                res.cookie("oauthkeys", {id: FSCID, secret: FSCSC, token: outbound.response});
-                res.sendFile('/oauth/login.html', {root: __dirname});
-            }
-        };
-        outbound.open("GET", url);
-    }
-    // Otherwise, just pass out the keys to get the code.
-    else {
-        res.cookie("oauthkeys", {"id":FSCID, "secret": FSCSC});
-        res.sendFile('/oauth/login.html', {root: __dirname});
-    }
+    // var params = req.params;
+    // // If I have a code already
+    // if (params.hasOwnProperty('code')) {
+    //     var url = "https://foursquare.com/oauth2/access_token" +
+    //         "?client_id=" + FSCID +
+    //         "&client_secret=" + FSCSC +
+    //         "&grant_type=authorization_code" +
+    //         "&redirect_uri=http://ec2-54-210-24-107.compute-1.amazonaws.com/oauth/" +
+    //         "&code=" + params.code;
+    //     var outbound = new XMLHttpRequest();
+    //     outbound.onreadystatechange = function () {
+    //         if (outbound.status == "200") {
+    //             console.log(outbound.response);
+    //             res.cookie("oauthkeys", {id: FSCID, secret: FSCSC, token: outbound.response});
+    //             res.sendFile('/oauth/login.html', {root: __dirname});
+    //         }
+    //     };
+    //     outbound.open("GET", url);
+    // }
+    // // Otherwise, just pass out the keys to get the code.
+    // else {
+    //     res.cookie("oauthkeys", {"id":FSCID, "secret": FSCSC});
+    //     res.sendFile('/oauth/login.html', {root: __dirname});
+    // }
+    // res.cookie("oauthkeys", {"id":FSCID, "secret": FSCSC});
+    res.sendFile('/oauth/login.html', {root: __dirname});
 });
 
 app.get('/login', function(req, res) {
