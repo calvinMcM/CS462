@@ -16,11 +16,6 @@
                     let value = pair[1].trim();
                     if (name == "oauthtoken") {
                          console.log("PRE:", value);
-                        value = value.substr(4); // random j: at the beginning of it? Dunno.
-                        value = decodeURIComponent(value);
-                        // console.log("VAL:", value);
-                        value = JSON.parse(value);
-                        // console.log(name, value);
                         return value;
                     }
                 }
