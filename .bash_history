@@ -448,3 +448,75 @@ sudo nano dlee.gpg
 gpg2 --import dlee.gpg
 gpg2 --list-keys
 gpg2 --edit-key leechef2010@gmail.com
+ls
+git pull
+node index.js
+ls
+cd oauth/
+ls
+git pull
+cd ../
+node index.js
+git pull
+node index.js
+git pull
+node index.js
+ls
+ls oauth/
+ls
+git pull
+node index.js 
+git pull
+node index.js
+git pull
+node index.js
+git pull
+node index.js
+git pull; node index.js
+ls
+nano indes.js
+nano index.js
+git pull
+node index.js
+sudo nano oauth/login.html 
+node index.js
+ls
+cd oauth/
+ls
+cd ../
+ls
+ls -a
+cd .npm
+ls
+cd express/
+ls
+cd 4.14.1
+ls
+cd package/
+ls
+nano package.json 
+cd ~
+ls
+sudo nano oauth/login.html 
+node index.
+node index.js
+git pull
+git stash
+git pull
+node index.js
+git pull
+node index.js
+git pull
+ls
+node index.js
+git pull
+node index.js
+git pull
+node index.js
+sudo nano oauth/main.html 
+node index.js
+git pull
+node index.js
+git stash
+git pull
+node index.js

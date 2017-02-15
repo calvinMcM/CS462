@@ -23,7 +23,7 @@
             }
             function getUserDetails(token){
                 return new Promise(function(resolve,reject){
-                    $.ajax("https://api.foursquare.com/v2/users/self?oauth_token="+token+"&version=20170215",{
+                    $.ajax("https://api.foursquare.com/v2/users/self?oauth_token="+token+"&v=20170215",{
                         success: function(data, status){
                             console.log("UserDeets:",data);
                             resolve(data);
