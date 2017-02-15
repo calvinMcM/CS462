@@ -5,7 +5,7 @@ var app = express();
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('oauth/public'));
+app.use(express.static('oauth'));
 
 // FOURSQUARE STUFF
 var FSCID = "NQWQ2LTZTLQM02RQKOXYFWMTJSUHWYBMI1F2V4K2CNB1N3P3";
@@ -85,7 +85,7 @@ app.listen(3000, function () {
 });
 
 app.get('/byu', function(req, res) {
-    res.sendFile('/public/index.byu', { root: __dirname });
+    res.sendFile('/oauth/index.byu', { root: __dirname });
 });
 
 app.get('/dlee',function(req, res){
@@ -147,9 +147,11 @@ app.get('/oauth',function(req, res) {
 });
 
 app.get('/oauth/login.js',function(req, res){
+    console.log("Hey there.");
     res.sendFile('/oauth/login.js', {root: __dirname}) ;
 });
 
 app.get('/oauth/foursquareIcon.png',function(req, res){
+    console.log("Howdy.");
     res.sendFile('/oauth/foursquareIcon.png', {root: __dirname}) ;
 });
