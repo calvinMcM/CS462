@@ -21,12 +21,12 @@
                 }
                 // console.log("Cookies:", cookies);
             }
-            function getUserDetails(token){
+            function getPersonDetails(uid,token){
                 return new Promise(function(resolve,reject){
-                    $.ajax("https://api.foursquare.com/v2/users/self?oauth_token="+token+"&v=20170215",{
+                    $.ajax("https://api.foursquare.com/v2/users/" + uid + "?oauth_token="+token+"&v=20170215",{
                         success: function(data, status){
                             console.log("UserDeets:",data);
-                            resolve(data);
+                            resolve(data.response.user);
                         },
                         error: function(a,b,c){
                             reject({a:a,b:b,c:c});
@@ -37,17 +37,24 @@
 
             (function run(){
                 var token = getOAuthCookie();
-                getUserDetails(token).then(
-                        function resolve(data){
-
-                            console.log("UserDeets:",data);
-                            var userData = data.response.user;
+                getPersonDetails("user",token).then(
+                        function resolve(userData){
                             console.log("personal info:", userData);
 
                             $('#name').text(userData.firstName + " " + userData.lastName);
                             var dataSection = $('#data');
                             dataSection.append("<h3>Home:  " + userData.homeCity + "</h3>");
                             dataSection.append("<h3>Email: " + userData.contact.email + "</h3>");
+
+                            var checkins = $('#checkins');
+                            if(userData.checkins.count) {
+                                for (let checkin of userData.checkins) {
+                                    checkins.append("<h3>" + checkin + "</h3>");
+                                }
+                            }
+                            else{
+                                checkins.append("<h3>" + none + "</h3>");
+                            }
 
                         },
                         function reject(data){
@@ -76,8 +83,12 @@
 </head>
 <body class="style">
     <h1 id="name" class="rounded blue spaced"></h1>
-    <div class="rounded blue spaced">
-        <h2 id="data"></h2>
+    <div class="rounded blue spaced" id="data">
+        <h2>Personal Data</h2>
+
+    </div>
+    <div class="rounded blue spaced" id="checkins">
+        <h2>Checkins</h2>
     </div>
 
 </body>
