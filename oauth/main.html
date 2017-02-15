@@ -41,7 +41,7 @@
                         function resolve(data){
 
                             console.log("UserDeets:",data);
-                            var userData = data.response;
+                            var userData = data.response.user;
                             console.log("personal info:", userData);
 
                             $('#name').text(userData.firstName + " " + userData.lastName);
