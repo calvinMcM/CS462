@@ -21,7 +21,31 @@
                 }
                 // console.log("Cookies:", cookies);
             }
-            console.log(getOAuthCookie());
+            function getUserDetails(token){
+                return new Promise(function(resolve,reject){
+                    $.ajax("https://api.foursquare.com/v2/users/self?oauth_token="+token,{
+                        success: function(data, status){
+                            console.log("UserDeets:",data);
+                            resolve(data);
+                        },
+                        error: function(a,b,c){
+                            reject({a:a,b:b,c:c});
+                        }
+                    });
+                });
+            }
+
+            (function run(){
+                var token = getOAuthCookie();
+                getUserDetails(token).then(
+                        function resolve(data){
+                            console.log("Deets obtained.");
+                        },
+                        function reject(data){
+                            console.log("FAILURE:",data);
+                        }
+                )
+            })();
         });
     </script>
     <style>
