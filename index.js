@@ -13,7 +13,8 @@ var config = {
     'secrets' : {
         'clientId' : 'NQWQ2LTZTLQM02RQKOXYFWMTJSUHWYBMI1F2V4K2CNB1N3P3',
         'clientSecret' : 'O54FM0ZKFLPHGPIZNDWS5EF23JFDTEJYMWRADWHG3MDIBVEA',
-        'redirectUrl' : 'http://ec2-54-210-24-107.compute-1.amazonaws.com/foursquare/'
+        // 'redirectUrl' : 'http://ec2-54-210-24-107.compute-1.amazonaws.com/foursquare/'
+        'redirectUrl' : 'http://localhost:3000/foursquare/'
     }
 };
 
@@ -23,7 +24,7 @@ var foursquare = require('node-foursquare')(config);
 var fs = require('fs');
 var saveids = {};
 
-fs.readFile("/saves/savelog.txt", function(err,data){
+fs.readFile("oauth/saves/savelog.txt", function(err,data){
     if(err){
         console.log("File unreadable.")
     }
@@ -171,15 +172,30 @@ app.get('/foursquare', function (req, res) {
             // Save the accessToken and redirect.
             res.cookie("oauthtoken",accessToken);
             console.log("Recieving token:",accessToken);
-            res.sendFile('/oauth/main.html', {root: __dirname})
+            res.sendFile('/oauth/main.html', {root: __dirname});
         }
     });
 });
 
-app.post('/saveid', function (req, res){
-    var id = req.params.id;
+app.post('/saves', function (req, res){
+    var id = req.query.id;
+    console.log("Saving out id:", id, req.query);
     saveids[id]= Date.now();
-    fs.writeFile("/saves/savelog.txt",JSON.stringify(saveids),function(err){
+    fs.writeFile("oauth/saves/savelog.txt",JSON.stringify(saveids),function(err){
        if(err){ console.log("Could not write file:",err); }
     });
+});
+
+app.get('/saves', function(req,res){
+    res.send(saveids);
+});
+
+app.get("/friends/:id",function(req, res){
+    console.log("Getting friendly profile.");
+    if(saveids.contains(id)) {
+        res.sendFile('/oauth/profile.html', {root: __dirname});
+    }
+    else {
+        res.sendFile('/oauth/main.html', {root: __dirname});
+    }
 });

@@ -39,6 +39,20 @@
                     method: "POST"
                 });
             }
+            function getIds(){
+                return new Promise(function(resolve,reject){
+                    $.ajax("../saves",{
+                        method: "GET",
+                        success: function(data){
+                            resolve(data);
+                        },
+                        error: function(err){
+                            reject(err);
+                        }
+                    });
+
+                });
+            }
 
             (function run(){
                 var token = getOAuthCookie();
@@ -62,11 +76,34 @@
                             else{
                                 checkins.append("<h3>" + "None" + "</h3>");
                             }
+
+                            getIds().then(
+                                    function success(data){
+                                        console.log("Recieved data:",data);
+                                        for(let prop in data){
+                                            if(data.hasOwnProperty(prop) && prop != userData.id){
+                                                getPersonDetails(prop,token).then(
+                                                        function resolve(friend){
+                                                            var button = $("button");
+                                                            button.on('click',function(ev){
+                                                                window.location = "./friends/" + friend.id;
+                                                            });
+                                                            button.text(friend.firstName + " " + friend.lastName);
+                                                            $('#friends').append(button);
+                                                        }
+                                                )
+                                            }
+                                        }
+                                    },
+                                    function failure(err){
+                                        console.log("Data error:", data);
+                                    }
+                            )
                         },
                         function reject(data){
                             console.log("FAILURE:",data);
                         }
-                )
+                );
             })();
         });
     </script>
@@ -98,6 +135,10 @@
     </div>
     <div class="rounded blue spaced" id="checkins">
         <h2>Checkins</h2>
+        <hr>
+    </div>
+    <div class="rounded blue spaced" id="friends">
+        <h2>Friends</h2>
         <hr>
     </div>
 

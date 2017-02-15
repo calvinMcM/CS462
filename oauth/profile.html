@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Squomp</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style>
+        .rounded{
+            border-radius: 15px;
+        }
+        .blue{
+            background-color: darkcyan;
+            color: white;
+        }
+        .dark{
+            background-color: #202020;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            function getOAuthCookie() {
+                var cookies = (document.cookie).split(';');
+                for (let c of cookies) {
+                    let pair = c.split('=');
+                    let name = pair[0].trim();
+                    let value = pair[1].trim();
+                    if (name == "oauthtoken") {
+                        console.log("PRE:", value);
+                        return value;
+                    }
+                }
+            }
+            function getPersonDetails(uid,token){
+                return new Promise(function(resolve,reject){
+                    $.ajax("https://api.foursquare.com/v2/users/" + uid + "?oauth_token="+token+"&v=20170215",{
+                        success: function(data, status){
+                            console.log("UserDeets:",data);
+                            resolve(data.response.user);
+                        },
+                        error: function(a,b,c){
+                            reject({a:a,b:b,c:c});
+                        }
+                    });
+                });
+            }
+
+        });
+    </script>
+</head>
+<body class="dark">
+
+
+</body>
+</html>
