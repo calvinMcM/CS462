@@ -37,33 +37,32 @@
 			 * @param token
 			 * @returns {Promise}
 			 */
-			function getPersonDetails(uid,token){
-				return new Promise(function(resolve,reject){
-					$.ajax("https://api.foursquare.com/v2/users/" + uid + "?oauth_token="+token+"&v=20170215",{
-						success: function(data, status){
-							console.log("UserDeets:",data);
-							resolve(data.response.user);
-						},
-						error: function(a,b,c){
-							reject({a:a,b:b,c:c});
-						}
-					});
-				});
-			}
-
 			function getIds(){
-				return new Promise(function(resolve,reject){
+				var friendsSection = $('#friends');
 					$.ajax("../saves",{
 						method: "GET",
 						success: function(data){
-							resolve(data);
+							console.log("Datum:",data);
+							for(let id in data){
+								console.log("\tDatum ID:",id);
+								if(data.hasOwnProperty(id)){
+									friend = data[id];
+									var button = $("<button>");
+									button.on('click',function(ev){
+										window.location = "../friends/" + id;
+									});
+									button.text(friend.name);
+									button.addClass('btn');
+									button.addClass('btn-success');
+									friendsSection.append(button);
+									friendsSection.append("<br>");
+								}
+							}
 						},
 						error: function(err){
-							reject(err);
+							console.log("ERR");
 						}
 					});
-
-				});
 			}
 
 		});
@@ -97,7 +96,7 @@
 		</button>
 
 		<div class="rounded blue spaced" id="friends">
-			<h2>Friends</h2>
+			<h2>Others</h2>
 			<hr>
 		</div>
 	</div>
