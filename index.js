@@ -13,8 +13,9 @@ var config = {
     'secrets' : {
         'clientId' : 'NQWQ2LTZTLQM02RQKOXYFWMTJSUHWYBMI1F2V4K2CNB1N3P3',
         'clientSecret' : 'O54FM0ZKFLPHGPIZNDWS5EF23JFDTEJYMWRADWHG3MDIBVEA',
+        'redirectUrl' : 'https://cmcmurray.info/foursquare/'
         // 'redirectUrl' : 'http://ec2-54-210-24-107.compute-1.amazonaws.com/foursquare/'
-        'redirectUrl' : 'http://localhost:3000/foursquare/'
+        // 'redirectUrl' : 'http://localhost:3000/foursquare/'
     }
 };
 
