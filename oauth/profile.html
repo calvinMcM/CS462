@@ -33,7 +33,7 @@
                             for(let id in data){
                                 console.log("\tDatum ID:",id);
                                 if(data.hasOwnProperty(id) && id == uid){
-                                    console.log("FoundID:",id);
+                                    console.log("FoundID:",id,uid);
                                     resolve(data[id]);
                                     return;
                                 }
@@ -63,6 +63,9 @@
                             console.log("Person data:",data);
                             $("#name").text(data.name);
                             $("#checkin").text(data.venue.name)
+                        },
+                        function(err){
+                            console.log("Failed!",err);
                         }
                 )
             })();
