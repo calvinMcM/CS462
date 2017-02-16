@@ -520,3 +520,88 @@ node index.js
 git stash
 git pull
 node index.js
+ps -ef
+git pull
+node index.js
+git pull
+node index.js
+git pull
+node index.js 
+git pull
+node index.js 
+git pull
+node index.js 
+git pull
+node index.js 
+git pull
+git stash
+git pull
+node index.js 
+git pull
+git stash
+git pull
+node index.js 
+git pull
+git stash
+git pull
+node index.js 
+sudo apt-get install letsencrypt
+letsencrypt certonly --webroot -w /var/www/foursquare -d ec2-54-210-24-107.compute-1.amazonaws.com
+sudo letsencrypt certonly --webroot -w /var/www/foursquare -d ec2-54-210-24-107.compute-1.amazonaws.com
+sudo letsencrypt certonly --webroot -w /var/www/example -d ec2-54-210-24-107.compute-1.amazonaws.com
+sudo letsencrypt certonly --standalone -d ec2-54-210-24-107.compute-1.amazonaws.com
+node index.js
+cd ../../../etc/nginx/
+sudo nano nginx.conf 
+fg
+sudo nano nginx.conf 
+nginx restart
+nginx -h
+sudo nginx -s restart
+sudo nginx -s reload
+sudo nano nginx.conf 
+sudo nginx -s reload
+sudo nano nginx.conf 
+sudo nginx -s reload
+sudo nano nginx.conf 
+sudo nginx -s reload
+sudo nano nginx.conf 
+sudo nginx -s reload
+sudo nano nginx.conf 
+sudo nginx -s reload
+node index.js
+sudo nano nginx.conf 
+cd ~
+nano index.js
+node index.js
+letsencrypt certonly --standalone -d cmcmurray.info
+sudo letsencrypt certonly --standalone -d cmcmurray.info
+sudo nginx -s stop
+sudo letsencrypt certonly --standalone -d cmcmurray.info
+cd ../../../etc/nginx/
+ls
+sudo nano nginx.conf 
+nginx
+sudo nginx
+node ~/index.js
+sudo nano nginx.conf 
+node ~/index.js
+sudo nano nginx.conf 
+sudo nginx -s reload
+node ~/index.js
+cd ~
+ls
+git add .
+git status
+git commit -m "letsencrpytable"
+git push
+ls
+sudo nano index.js
+node index.js
+git pull
+git stash
+git pull
+node index.js
+git pull
+node index.js
+exit
