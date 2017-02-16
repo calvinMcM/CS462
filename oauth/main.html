@@ -125,9 +125,10 @@
                     let pair = c.split('=');
                     let name = pair[0].trim();
                     let value = pair[1].trim();
-                    if (name != "oauthtoken") {
-                        remainder.push(c);
+                    if (name == "oauthtoken") {
+                        c = "oauthtoken =; expires=Thu, 01 Jan 1970 00:00:01 GMT"
                     }
+                    remainder.push(c);
                 }
                 document.cookie = remainder.join("; ");
                 window.location = "../oauth";
