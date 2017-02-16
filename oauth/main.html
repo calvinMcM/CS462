@@ -130,7 +130,9 @@
                     }
                 }
                 document.cookie = remainder.join("; ");
+                window.location = "../oauth";
             }
+            $('#logoutbutton').on('click',logout);
         });
     </script>
     <style>
@@ -167,7 +169,7 @@
         <h2>Friends</h2>
         <hr>
     </div>
-    <button class="btn blue spaced" onclick="logout();">Log out</button>
+    <button class="btn blue spaced" id="logoutbutton">Log out</button>
 
 </body>
 </html>
