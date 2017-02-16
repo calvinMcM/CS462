@@ -31,6 +31,7 @@
                         success: function(data){
                             console.log("Datum:",data);
                             for(let id in data){
+                                console.log("\tDatum ID:",id);
                                 if(data.hasOwnProperty(id) && id == uid){
                                     console.log("FoundID:",id);
                                     resolve(data[id]);
