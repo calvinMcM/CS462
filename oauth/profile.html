@@ -74,7 +74,9 @@
                                     }
                                     checkins.append("<h3>" + checkin.venue.name + "</h3>");
                                 }
-                                checkins.append("<h3>" + most_recent.venue.name + "</h3>");
+                                if(most_recent) {
+                                    checkins.append("<h3>" + most_recent.venue.name + "</h3>");
+                                }
                             }
                             else{
                                 checkins.append("<h3>" + "None" + "</h3>");
