@@ -62,7 +62,7 @@
                         function(data){
                             console.log("Person data:",data);
                             $("#name").text(data.name);
-                            $("#checkin").text(data.venue.name)
+                            $("#checkin").text((JSON.parse(data.checkin)).venue.name)
                         },
                         function(err){
                             console.log("Failed!",err);
