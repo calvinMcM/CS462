@@ -80,10 +80,11 @@
                                     function success(data){
                                         console.log("Recieved data:",data);
                                         for(let prop in data){
-                                            console.log("friend data:",prop);
+                                            console.log("friend id:",prop);
                                             if(data.hasOwnProperty(prop) && prop != userData.id){
                                                 getPersonDetails(prop,token).then(
                                                         function resolve(friend){
+                                                            console.log("friend data:",friend);
                                                             var button = $("button");
                                                             button.on('click',function(ev){
                                                                 window.location = "./friends/" + friend.id;
