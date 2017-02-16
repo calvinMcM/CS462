@@ -58,7 +58,7 @@
             (function run(){
                 let id = getMyID();
                 console.log("UserID:",id);
-                getData().then(
+                getData(id).then(
                         function(data){
                             console.log("Person data:",data);
                             $("#name").text(data.name);
