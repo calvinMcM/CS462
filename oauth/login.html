@@ -37,7 +37,7 @@
 			 * @param token
 			 * @returns {Promise}
 			 */
-			function getIds(){
+			(function getIds(){
 				var friendsSection = $('#friends');
 					$.ajax("../saves",{
 						method: "GET",
@@ -63,7 +63,7 @@
 							console.log("ERR");
 						}
 					});
-			}
+			})();
 
 		});
 	</script>
