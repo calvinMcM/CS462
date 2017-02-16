@@ -14,6 +14,10 @@
             background-color: darkcyan;
             color: white;
         }
+        .spaced{
+            margin: 15px;
+            padding: 15px;
+        }
         .dark{
             background-color: #202020;
         }
@@ -72,7 +76,7 @@
                                     if(!most_recent || checkin.created > most_recent.created){
                                         most_recent = checkin;
                                     }
-                                    checkins.append("<h3>" + checkin.venue.name + "</h3>");
+                                    console.log("Cycling through checkins.", checkin, most_recent);
                                 }
                                 if(most_recent) {
                                     checkins.append("<h3>" + most_recent.venue.name + "</h3>");
