@@ -195,7 +195,7 @@ app.get('/saves', function(req,res){
 
 app.get("/friends/:id",function(req, res){
     console.log("Getting friendly profile.");
-    if(saveids.contains(id)) {
+    if(saveids.contains(req.params.id)) {
         res.sendFile('/oauth/profile.html', {root: __dirname});
     }
     else {
