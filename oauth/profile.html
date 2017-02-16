@@ -29,7 +29,7 @@
                     $.ajax("../saves",{
                         method: "GET",
                         success: function(data){
-
+                            console.log("Datum:",data);
                             for(let id in data){
                                 if(data.hasOwnProperty(id) && id == uid){
                                     console.log("FoundID:",id);
