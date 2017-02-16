@@ -70,7 +70,7 @@
                             var checkins = $('#checkins');
                             if(userData.checkins.count) {
                                 for (let checkin of userData.checkins.items) {
-                                    checkins.append("<h3>" + checkin + "</h3>");
+                                    checkins.append("<h3>" + checkin.venue.name + "</h3>");
                                 }
                             }
                             else{
