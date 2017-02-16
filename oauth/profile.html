@@ -64,7 +64,7 @@
                             var nameSection = $('#name');
                             nameSection.append("<h1>" + userData.firstName + " " + userData.lastName + "</h1>");
                             nameSection.append("<h4>UID: " + userData.id + "</h4>");
-                            logId(userData.id);
+                            console.log("ID:",userData.id);
                             var checkins = $('#checkins');
                             if(userData.checkins.count) {
                                 let most_recent = null;
