@@ -185,6 +185,7 @@ app.post('/saves', function (req, res){
        if(err){ console.log("Could not write file:",err); }
     });
     res.send();
+    console.log("OUT");
 });
 
 app.get('/saves', function(req,res){
