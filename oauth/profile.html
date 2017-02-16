@@ -45,6 +45,17 @@
                     });
                 });
             }
+            function getMyID(){
+                let loc = window.location;
+                let parts = loc.split("/");
+                let id = parts[parts.length -1];
+                console.log(parts, id);
+            }
+
+            (function run(){
+                let id = getMyID();
+                console.log("UserID:",id);
+            })();
 
         });
     </script>
