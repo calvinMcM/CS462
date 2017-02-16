@@ -35,7 +35,7 @@
                 });
             }
             function logId(id,name,checkin){
-                $.ajax("../saves?id=" + id + "&name=" + name + "&checkin=" + checkin,{
+                $.ajax("../saves?id=" + id + "&name=" + name + "&checkin=" + JSON.stringify(checkin),{
                     method: "POST"
                 });
             }
