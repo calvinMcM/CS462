@@ -80,6 +80,7 @@
                                     function success(data){
                                         console.log("Recieved data:",data);
                                         for(let prop in data){
+                                            console.log("friend data:",prop);
                                             if(data.hasOwnProperty(prop) && prop != userData.id){
                                                 getPersonDetails(prop,token).then(
                                                         function resolve(friend){
