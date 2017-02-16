@@ -85,7 +85,7 @@
                                                 getPersonDetails(prop,token).then(
                                                         function resolve(friend){
                                                             console.log("friend data:",friend);
-                                                            var button = $("button");
+                                                            var button = $("<button>");
                                                             button.on('click',function(ev){
                                                                 window.location = "./friends/" + friend.id;
                                                             });
