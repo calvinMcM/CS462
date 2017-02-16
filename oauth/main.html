@@ -79,6 +79,7 @@
                             getIds().then(
                                     function success(data){
                                         console.log("Recieved data:",data);
+                                        let friendsSection = $('#friends')
                                         for(let prop in data){
                                             console.log("friend id:",prop);
                                             if(data.hasOwnProperty(prop) && prop != userData.id){
@@ -90,7 +91,11 @@
                                                                 window.location = "./friends/" + friend.id;
                                                             });
                                                             button.text(friend.firstName + " " + friend.lastName);
-                                                            $('#friends').append(button);
+                                                            button.addClass('btn');
+                                                            button.addClass('btn-success');
+                                                            friendsSection.append(button);
+                                                            friendsSection.append("<br>")
+
                                                         }
                                                 )
                                             }
