@@ -69,14 +69,13 @@
                             logId(userData.id);
                             var checkins = $('#checkins');
                             if(userData.checkins.count) {
-                                for (let checkin of userData.checkins) {
+                                for (let checkin of userData.checkins.items) {
                                     checkins.append("<h3>" + checkin + "</h3>");
                                 }
                             }
                             else{
                                 checkins.append("<h3>" + "None" + "</h3>");
                             }
-
                             getIds().then(
                                     function success(data){
                                         console.log("Recieved data:",data);
