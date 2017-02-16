@@ -24,30 +24,27 @@
     </style>
     <script>
         $(document).ready(function() {
-            function getOAuthCookie() {
-                var cookies = (document.cookie).split(';');
-                for (let c of cookies) {
-                    let pair = c.split('=');
-                    let name = pair[0].trim();
-                    let value = pair[1].trim();
-                    if (name == "oauthtoken") {
-                        console.log("PRE:", value);
-                        return value;
-                    }
-                }
-            }
-            function getPersonDetails(uid,token){
-                return new Promise(function(resolve,reject){
-                    $.ajax("https://api.foursquare.com/v2/users/" + uid + "?oauth_token="+token+"&v=20170215",{
-                        success: function(data, status){
-                            console.log("UserDeets:",data);
-                            resolve(data.response.user);
+
+            function getData(uid){
+                new Promise(function(resolve,reject){
+                    $.ajax("../saves",{
+                        method: "GET",
+                        success: function(data){
+
+                            for(let id in data){
+                                if(data.hasOwnProperty(id) && id == uid){
+                                    resolve(data[id]);
+                                    return;
+                                }
+                            }
+                            reject(data);
                         },
-                        error: function(a,b,c){
-                            reject({a:a,b:b,c:c});
+                        error: function(err){
+                            reject(err);
                         }
                     });
-                });
+
+                })
             }
             function getMyID(){
                 let loc = window.location.href;
@@ -59,35 +56,12 @@
 
             (function run(){
                 let id = getMyID();
-                let token = getOAuthCookie();
                 console.log("UserID:",id);
-                getPersonDetails(id,token).then(
-                        function resolve(userData){
-                            console.log("personal info:", userData);
-
-                            var nameSection = $('#name');
-                            nameSection.append("<h1>" + userData.firstName + " " + userData.lastName + "</h1>");
-                            nameSection.append("<h4>UID: " + userData.id + "</h4>");
-                            console.log("ID:",userData.id);
-                            var checkins = $('#checkins');
-                            if(userData.checkins.count) {
-                                let most_recent = null;
-                                for (let checkin of userData.checkins.items) {
-                                    if(!most_recent || checkin.created > most_recent.created){
-                                        most_recent = checkin;
-                                    }
-                                    console.log("Cycling through checkins.", checkin, most_recent);
-                                }
-                                if(most_recent) {
-                                    checkins.append("<h3>" + most_recent.venue.name + "</h3>");
-                                }
-                            }
-                            else{
-                                checkins.append("<h3>" + "None" + "</h3>");
-                            }
-                        },
-                        function reject(data){
-                            console.log("FAILURE:",data);
+                getData().then(
+                        function(data){
+                            console.log("Person data:",data);
+                            $("#name").text(data.name);
+                            $("#checkin").text(data.venue.name)
                         }
                 )
             })();
@@ -99,12 +73,12 @@
     <div id="name" class="rounded blue spaced">
 
     </div>
-    <div class="rounded blue spaced" id="checkins">
+    <div class="rounded blue spaced" id="checkin">
         <h2>Most Recent Checkin</h2>
         <hr>
     </div>
     <div class="rounded blue spaced" id="friends">
-        <button class="btn btn-warning" onclick="window.location='https://cmcmurray.info/foursquare/">BACK</button>
+        <button class="btn btn-warning" onclick="window.location='https://cmcmurray.info/foursquare/'">BACK</button>
     </div>
 
 </body>

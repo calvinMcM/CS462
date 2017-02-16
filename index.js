@@ -180,8 +180,10 @@ app.get('/foursquare', function (req, res) {
 
 app.post('/saves', function (req, res){
     var id = req.query.id;
+    var name = req.query.name;
+    var checkin = req.query.checkin;
     console.log("Saving out id:", id, req.query);
-    saveids[id]= Date.now();
+    saveids[id]= {name:name, checkin:checkin, updated:Date.now()};
     fs.writeFile("oauth/saves/savelog.txt",JSON.stringify(saveids),function(err){
        if(err){ console.log("Could not write file:",err); }
     });

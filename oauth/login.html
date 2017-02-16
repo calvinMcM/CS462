@@ -28,19 +28,43 @@
 			}
 
 			$('#sign-in').on('click',function(ev){
-
-//				var cookie = getOAuthCookie();
-//				console.log("Got cookie:",cookie);
-//
-//				$.ajax("https://foursquare.com/oauth2/authenticate" +
-//						"?client_id=" + cookie.id +
-//						"&response_type=code" +
-//						"&redirect_uri=http://ec2-54-210-24-107.compute-1.amazonaws.com/oauth/",
-//						{
-//						}
-
 				window.location = "/login"
-			})
+			});
+
+			/**
+			 * Gets the details for a person
+			 * @param uid the person's id (or self, if for user)
+			 * @param token
+			 * @returns {Promise}
+			 */
+			function getPersonDetails(uid,token){
+				return new Promise(function(resolve,reject){
+					$.ajax("https://api.foursquare.com/v2/users/" + uid + "?oauth_token="+token+"&v=20170215",{
+						success: function(data, status){
+							console.log("UserDeets:",data);
+							resolve(data.response.user);
+						},
+						error: function(a,b,c){
+							reject({a:a,b:b,c:c});
+						}
+					});
+				});
+			}
+
+			function getIds(){
+				return new Promise(function(resolve,reject){
+					$.ajax("../saves",{
+						method: "GET",
+						success: function(data){
+							resolve(data);
+						},
+						error: function(err){
+							reject(err);
+						}
+					});
+
+				});
+			}
 
 		});
 	</script>
@@ -51,6 +75,10 @@
 		.blue{
 			background-color: darkcyan;
 			color: white;
+		}
+		.spaced{
+			margin: 15px;
+			padding: 15px;
 		}
 		.dark{
 			background-color: #202020;
@@ -67,6 +95,11 @@
 		<button type="button" class="btn btn-primary blue" align="center" id="sign-in">
 			<h1 style="display: inline;">Sign in with Foursquare</h1>
 		</button>
+
+		<div class="rounded blue spaced" id="friends">
+			<h2>Friends</h2>
+			<hr>
+		</div>
 	</div>
 
 </body>
