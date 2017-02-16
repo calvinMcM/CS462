@@ -24,7 +24,6 @@
     </style>
     <script>
         $(document).ready(function() {
-
             function getData(uid){
                 return new Promise(function(resolve,reject){
                     $.ajax("../saves",{
@@ -33,6 +32,7 @@
 
                             for(let id in data){
                                 if(data.hasOwnProperty(id) && id == uid){
+                                    console.log("FoundID:",id);
                                     resolve(data[id]);
                                     return;
                                 }
