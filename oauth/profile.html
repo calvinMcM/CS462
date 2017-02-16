@@ -50,18 +50,56 @@
                 let parts = loc.split("\/");
                 let id = parts[parts.length -1];
                 console.log("Location:",loc,parts, id);
+                return id;
             }
 
             (function run(){
                 let id = getMyID();
+                let token = getOAuthCookie();
                 console.log("UserID:",id);
+                getPersonDetails(id,token).then(
+                        function resolve(userData){
+                            console.log("personal info:", userData);
+
+                            var nameSection = $('#name');
+                            nameSection.append("<h1>" + userData.firstName + " " + userData.lastName + "</h1>");
+                            nameSection.append("<h4>UID: " + userData.id + "</h4>");
+                            logId(userData.id);
+                            var checkins = $('#checkins');
+                            if(userData.checkins.count) {
+                                let most_recent = null;
+                                for (let checkin of userData.checkins.items) {
+                                    if(!most_recent || checkin.created > most_recent.created){
+                                        most_recent = checkin;
+                                    }
+                                    checkins.append("<h3>" + checkin.venue.name + "</h3>");
+                                }
+                                checkins.append("<h3>" + most_recent.venue.name + "</h3>");
+                            }
+                            else{
+                                checkins.append("<h3>" + "None" + "</h3>");
+                            }
+                        },
+                        function reject(data){
+                            console.log("FAILURE:",data);
+                        }
+                )
             })();
 
         });
     </script>
 </head>
 <body class="dark">
+    <div id="name" class="rounded blue spaced">
 
+    </div>
+    <div class="rounded blue spaced" id="checkins">
+        <h2>Most Recent Checkin</h2>
+        <hr>
+    </div>
+    <div class="rounded blue spaced" id="friends">
+        <button class="btn btn-warning" onclick="window.location='https://cmcmurray.info/foursquare/">BACK</button>
+    </div>
 
 </body>
 </html>
